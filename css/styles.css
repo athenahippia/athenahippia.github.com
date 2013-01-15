@@ -25,7 +25,9 @@ ol, ul {
 	list-style: none;
 }
 
-a img {border:none}
+a img {
+	border: 1px solid #E8E8E8
+}
 
 aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {display: block}
@@ -169,6 +171,10 @@ h4 span{
 	background:white;
 	padding:15px;
 	margin-bottom:10px;
+}
+
+.group1.fullwidth {
+	width: 890px;
 }
 	
 .group2 {
