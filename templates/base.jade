@@ -1,0 +1,42 @@
+doctype 5
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		title Личный сайт социального педагога Марины Александровны Грицаевой
+		//if lt IE 9
+			script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+		link(rel='stylesheet', type='text/css', href='css/styles.css')
+	body
+		block params
+			- var menuItemClasses = [];
+			- var curMenuItemClasses = ['current'];
+			- if (typeof currentMenuItem === 'undefined') currentMenuItem = '';
+		#container
+			header
+				a#logo(href='#')
+					img(src='images/logo.png', width='134', height='84', alt='logo')
+				nav: ul
+					li: a(href='index.html', class=(currentMenuItem == 'index' ? curMenuItemClasses : menuItemClasses))
+						Главная
+					li: a(href='contacts.html', class=(currentMenuItem == 'contacts' ? curMenuItemClasses : menuItemClasses))
+						Контакты
+					li: a(href='#') Галерея
+					li: a(href='attachments/publications/psychotherapeutic-role-play-in-the-education-of-pre-school-and-primary-school-children.doc') Публикации
+					li: a(href='about.html', class=(currentMenuItem == 'about' ? curMenuItemClasses : menuItemClasses)) Обо мне
+			#intro
+				img(src='images/bg.jpg', alt='bg')
+			header.group_bannner_left
+				hgroup
+					h1 Грицаева Марина Александровна
+					h2.occupation
+						| Профессия: Социальный педагог
+						| Регион: РФ, г. Белгород, МБОУ СОШ №7
+					a.button.black(href='schedule.html') График работы
+			.holder_content
+				block content
+
+		footer
+			.container
+				#FooterTwo	© 2013 Марина Грицаева
+				#FooterTree
+					a(href="http://freehtml5templates.com", target="blank") Free HTML5 Templates
