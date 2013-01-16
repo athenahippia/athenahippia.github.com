@@ -14,7 +14,7 @@ function render(templates) {
 	templates.map(function(name) {
 		var path = 'templates/pages/' + name + '.jade',
 			template = fs.readFileSync(path),
-			html = jade.compile(template, {filename: path})();
+			html = jade.compile(template, {filename: path, pretty: true})();
 		fs.writeFileSync(name + '.html', html);
 	});
 }
