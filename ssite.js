@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var fs = require('fs'),
+	path = require('path'),
 	jade = require('jade'),
 	marked = require('marked'),
 	program = require('commander'),
@@ -29,13 +30,14 @@ if (program.watch) {
 		process.stdout.write('child process exited with code ' + code);
 	});
 } else {
-	render([
-		'index', 'contacts', 'schedule', 'about'
-	], 'default');
+	var pageNames = fs.readdirSync('./content/pages').map(function(name) {
+		return path.basename(name, '.md')
+	});
+	render(pageNames);
 }
 
 
-function render(pageNames, templateName) {
+function render(pageNames) {
 	pageNames.map(function(pageName) {
 		var templatePath = getTemplatePath(pageName);
 		if (!fs.existsSync(templatePath)) {
