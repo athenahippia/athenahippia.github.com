@@ -1,5 +1,8 @@
 extends ../template/index
 
+append params
+	- var currentMenuItem = page;
+
 block content
 	section.group1.fullwidth
 		!{content}

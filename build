@@ -6,29 +6,34 @@ var fs = require('fs'),
 
 
 render([
-	//Templates for rendering
 	'index', 'contacts', 'schedule', 'about'
-]);
+], 'default');
 
 
-function render(templates) {
-	templates.map(function(name) {
-		var templatePath = './templates/pages/' + name + '.jade',
-			template = fs.readFileSync(templatePath),
-			contentPath = './content/pages/' + name + '.md',
-			content = null;
-		if (fs.existsSync(contentPath)) {
-			console.log(
-				'Using content `%s` for template `%s', contentPath, templatePath
-			);
-			content = marked(fs.readFileSync(contentPath).toString());
+function render(pageNames, templateName) {
+	pageNames.map(function(pageName) {
+		var templatePath = getTemplatePath(pageName);
+		if (!fs.existsSync(templatePath)) {
+			templatePath = getTemplatePath('default');
 		}
+		var template = fs.readFileSync(templatePath),
+			contentPath = './content/pages/' + pageName + '.md',
+			content = marked(fs.readFileSync(contentPath).toString());
+		console.log(
+			'Render page `%s` using template `%s` and content `%s`',
+			pageName, templatePath, contentPath
+		);
 		var html = jade.compile(template, {
 			filename: templatePath,
 			pretty: true
 		})({
+			page: pageName,
 			content: content
 		});
-		fs.writeFileSync(name + '.html', html);
+		fs.writeFileSync(pageName + '.html', html);
 	});
+}
+
+function getTemplatePath(templateName) {
+	return './templates/pages/' + templateName + '.jade';
 }
