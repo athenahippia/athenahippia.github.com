@@ -2,6 +2,7 @@
 	"name": "sssg",
 	"version": "0.1.0",
 	"dependencies": {
-		"jade": "0.28.1"
+		"jade": "0.28.1",
+		"marked": "0.2.7"
 	}
 }

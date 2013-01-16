@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 var fs = require('fs'),
-	jade = require('jade');
+	jade = require('jade'),
+	marked = require('marked');
 
 
 render([
@@ -12,9 +13,22 @@ render([
 
 function render(templates) {
 	templates.map(function(name) {
-		var path = 'templates/pages/' + name + '.jade',
-			template = fs.readFileSync(path),
-			html = jade.compile(template, {filename: path, pretty: true})();
+		var templatePath = './templates/pages/' + name + '.jade',
+			template = fs.readFileSync(templatePath),
+			contentPath = './content/pages/' + name + '.md',
+			content = null;
+		if (fs.existsSync(contentPath)) {
+			console.log(
+				'Using content `%s` for template `%s', contentPath, templatePath
+			);
+			content = marked(fs.readFileSync(contentPath).toString());
+		}
+		var html = jade.compile(template, {
+			filename: templatePath,
+			pretty: true
+		})({
+			content: content
+		});
 		fs.writeFileSync(name + '.html', html);
 	});
 }
