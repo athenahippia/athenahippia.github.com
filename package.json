@@ -1,8 +1,9 @@
 {
-	"name": "sssg",
+	"name": "ssite",
 	"version": "0.1.0",
 	"dependencies": {
 		"jade": "0.28.1",
-		"marked": "0.2.7"
+		"marked": "0.2.7",
+		"commander": "1.1.1"
 	}
 }
