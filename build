@@ -12,7 +12,7 @@ render([
 
 function render(templates) {
 	templates.map(function(name) {
-		var path = 'templates/' + name + '.jade',
+		var path = 'templates/pages/' + name + '.jade',
 			template = fs.readFileSync(path),
 			html = jade.compile(template, {filename: path})();
 		fs.writeFileSync(name + '.html', html);
