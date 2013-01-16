@@ -9,19 +9,18 @@ html(lang="en")
 		block params
 			- var menuItemClasses = [];
 			- var curMenuItemClasses = ['current'];
-			- if (typeof currentMenuItem === 'undefined') currentMenuItem = '';
 		#container
 			header
 				a#logo(href='#')
 					img(src='images/logo.png', width='134', height='84', alt='logo')
 				nav: ul
-					li: a(href='index.html', class=(currentMenuItem == 'index' ? curMenuItemClasses : menuItemClasses))
+					li: a(href='index.html', class=(page == 'index' ? curMenuItemClasses : menuItemClasses))
 						Главная
-					li: a(href='contacts.html', class=(currentMenuItem == 'contacts' ? curMenuItemClasses : menuItemClasses))
+					li: a(href='contacts.html', class=(page == 'contacts' ? curMenuItemClasses : menuItemClasses))
 						Контакты
 					li: a(href='#') Галерея
 					li: a(href='attachments/publications/psychotherapeutic-role-play-in-the-education-of-pre-school-and-primary-school-children.doc') Публикации
-					li: a(href='about.html', class=(currentMenuItem == 'about' ? curMenuItemClasses : menuItemClasses)) Обо мне
+					li: a(href='about.html', class=(page == 'about' ? curMenuItemClasses : menuItemClasses)) Обо мне
 			#intro
 				img(src='images/bg.jpg', alt='bg')
 			header.group_bannner_left
