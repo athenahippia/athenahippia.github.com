@@ -2,7 +2,15 @@
 	"folders":
 	[
 		{
-			"path": "/home/oleg/work/repository/git-hub/athenahippia.github.com"
+			"path": "~/work/repository/git-hub/athenahippia.github.com"
 		}
-	]
+	],
+	"build_systems":
+    [
+		{
+			"name": "ssite-athenahippia",
+			"cmd": ["/home/oleg/programs/nvm/v0.8.8/bin/node", "./ssite.js"],
+			"working_dir": "$project_path"
+		}
+    ]
 }
