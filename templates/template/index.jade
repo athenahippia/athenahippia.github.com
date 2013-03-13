@@ -5,6 +5,7 @@ html(lang="en")
 		title Личный сайт социального педагога Марины Александровны Грицаевой
 		include styles
 		include scripts
+		include mixins
 	body
 		block params
 			- var menuItemClasses = [];
@@ -18,7 +19,7 @@ html(lang="en")
 						Главная
 					li: a(href='contacts.html', class=(page == 'contacts' ? curMenuItemClasses : menuItemClasses))
 						Контакты
-					li: a(href='#') Галерея
+					li: a(href='gallery.html', class=(page == 'gallery' ? curMenuItemClasses : menuItemClasses)) Галерея
 					li: a(href='publications.html', class=(page == 'publications' ? curMenuItemClasses : menuItemClasses)) Публикации
 					li: a(href='about.html', class=(page == 'about' ? curMenuItemClasses : menuItemClasses)) Обо мне
 			#intro

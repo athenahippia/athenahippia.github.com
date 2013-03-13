@@ -1,0 +1,10 @@
+
+- var galleryBasePath = 'images/gallery/'
+
+mixin sidebarGalleryItem(src, title, date, alt)
+	article.holder_news
+		h4 #{title}
+			span #{date}
+		article.holder_gallery
+			a.photo_hover2(href='gallery.html')
+				img(src=(galleryBasePath + src), width='265', height='199', alt=(alt ? alt : title))
