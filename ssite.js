@@ -9,31 +9,16 @@ var fs = require('fs'),
 
 program
 	.option('--build', 'Build site')
-	.option('--watch', 'Watch for file changes')
 	.parse(process.argv);
 
 
-if (program.watch) {
-	var watch = spawn(
-		'supervisor',
-		['-e', 'jade|md', '--no-restart-on', 'exit', 'ssite.js']
-	);
-	watch.stdout.on('data', function (data) {
-		process.stdout.write('stdout: ' + data);
-	});
-
-	watch.stderr.on('data', function (data) {
-		process.stderr.write('stderr: ' + data);
-	});
-
-	watch.on('exit', function (code) {
-		process.stdout.write('child process exited with code ' + code);
-	});
-} else {
+if (program.build) {
 	var pageNames = fs.readdirSync('./content/pages').map(function(name) {
 		return path.basename(name, '.md')
 	});
 	render(pageNames);
+} else {
+	program.help();
 }
 
 

@@ -9,7 +9,7 @@
     [
 		{
 			"name": "ssite-athenahippia",
-			"cmd": ["/home/oleg/programs/nvm/v0.8.8/bin/node", "./ssite.js"],
+			"cmd": ["/home/oleg/programs/nvm/v0.8.8/bin/node", "./ssite.js", "--build"],
 			"working_dir": "$project_path"
 		}
     ]
