@@ -7,21 +7,11 @@ html(lang="en")
 		include scripts
 		include mixins
 	body
-		block params
-			- var menuItemClasses = [];
-			- var curMenuItemClasses = ['current'];
 		#container
 			header
 				a#logo(href='#')
 					img(src='images/logo.png', width='134', height='84', alt='logo')
-				nav: ul
-					li: a(href='index.html', class=(page == 'index' ? curMenuItemClasses : menuItemClasses))
-						Главная
-					li: a(href='contacts.html', class=(page == 'contacts' ? curMenuItemClasses : menuItemClasses))
-						Контакты
-					li: a(href='gallery.html', class=(page == 'gallery' ? curMenuItemClasses : menuItemClasses)) Галерея
-					li: a(href='publications.html', class=(page == 'publications' ? curMenuItemClasses : menuItemClasses)) Публикации
-					li: a(href='about.html', class=(page == 'about' ? curMenuItemClasses : menuItemClasses)) Обо мне
+				include menu
 			#intro
 				img(src='images/bg.jpg', alt='bg')
 			header.group_bannner_left

@@ -1,0 +1,14 @@
+- var menuItemClasses = [];
+
+mixin menuItem(id, title)
+	li: a(
+		href=(id + '.html'),
+		class=(id == page ? ['current'].concat(menuItemClasses) : menuItemClasses)
+	) #{title}
+
+nav: ul
+	mixin menuItem('index', 'Главная')
+	mixin menuItem('contacts', 'Контакты')
+	mixin menuItem('gallery', 'Галерея')
+	mixin menuItem('publications', 'Публикации')
+	mixin menuItem('about', 'Обо мне')
