@@ -1,20 +1,16 @@
 
 - var galleryBasePath = 'images/gallery/'
 
-- function imageNameToAnchor(imageName) {
--	return /(.*)-(small|big)/.exec(imageName)[1];
-- }
-
 mixin sidebarGalleryItem(name, title, date, alt)
 	article.holder_news
 		h4 #{title}
 			span #{date}
 		article.holder_gallery
-			a.photo_hover2(href='gallery.html#' + imageNameToAnchor(name))
-				img(src=(galleryBasePath + name), width='265', height='199', alt=(alt ? alt : title))
+			a.photo_hover2(href='gallery.html#' + name)
+				img(src=(galleryBasePath + name + '-small.jpg'), width='265', height='199', alt=(alt ? alt : title))
 
 mixin galleryItem(name, title, date, alt)
-	img(id=imageNameToAnchor(name), src=(galleryBasePath + name), width='900', height='675', alt=(alt ? alt : title))
+	img(id=name, src=(galleryBasePath + name + '-big.jpg'), width='900', height='675', alt=(alt ? alt : title))
 	h4
 		span #{date} #{title}
 
