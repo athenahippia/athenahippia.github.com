@@ -8,3 +8,9 @@ mixin sidebarGalleryItem(src, title, date, alt)
 		article.holder_gallery
 			a.photo_hover2(href='gallery.html')
 				img(src=(galleryBasePath + src), width='265', height='199', alt=(alt ? alt : title))
+
+mixin galleryItem(src, title, date, alt)
+	img(src=(galleryBasePath + src), width='900', height='675', alt=(alt ? alt : title))
+	h4
+		span #{date} #{title}
+

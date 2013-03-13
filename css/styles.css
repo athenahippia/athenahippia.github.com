@@ -536,3 +536,9 @@ nav ul li a.current{
 .black a {
    color: #ffffff;
 }   
+
+.gallery h4 {
+	width: 900px;
+	text-align: center;
+	margin-bottom: 40px;
+}
